@@ -3,7 +3,7 @@ from collections import deque
 input = sys.stdin.readline
 move = [(-1, -2), (-1, 2), (1, -2), (1, 2), (-2, -1), (-2, 1), (2, -1), (2, 1)]
 
-def dfs():
+def bfs():
 
   queue = deque([[start_x, start_y]])
   chase[start_x][start_y] = 1
@@ -33,6 +33,6 @@ for _ in range(T):
   end_x, end_y = map(int, input().split())
 
   chase = [[0] * l for _ in range(l)]
-  result = dfs()
+  result = bfs()
 
   print(result)

@@ -2,7 +2,7 @@ import sys
 from collections import deque
 input = sys.stdin.readline
 
-def dfs(queue):
+def bfs(queue):
     while queue:
         node = queue.popleft()
         i, j, c = node[0], node[1], node[2]
@@ -38,5 +38,5 @@ for i in range(N):
         if tomato[i][j] == 1:
             queue.append([i, j, cnt])
 
-result = dfs(queue)
+result = bfs(queue)
 print(isTomato(result, tomato))

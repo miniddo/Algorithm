@@ -1,18 +1,8 @@
-'''
-5 3 2
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 1 0 0
-0 0 0 0 0
-'''
-
 import sys
 from collections import deque
 input = sys.stdin.readline
 
-def dfs(queue):
+def bfs(queue):
     while queue:
         node = queue.popleft()
         h, i, j, c = node[0], node[1], node[2], node[3]
@@ -70,5 +60,5 @@ for h in range(H):
             if allTomato[h][i][j] == 1:
                 queue.append([h, i, j, cnt])
 
-result = dfs(queue)
+result = bfs(queue)
 print(isTomato(result))
