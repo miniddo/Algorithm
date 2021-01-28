@@ -24,8 +24,8 @@ def dfs(x, index):
         print(' '.join(map(str, result)))
         return
     for i in range(index, N):
-        print('***', x, index, i)
-        print(visited)
+        # print('***', x, index, i)
+        # print(visited)
         if visited[i]:  
             continue
         
