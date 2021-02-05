@@ -17,11 +17,11 @@ for i in student:
         
   else: # 여자
     # print('여자')
-    # print('여자가 받은 수: ', j[1])
-    # print('스위치의 위치: ', j[1]-1)
-    # print('스위치 상태: ', switch[j[1]-1])
+    # print('여자가 받은 수: ', i[1])
+    # print('스위치의 위치: ', i[1]-1)
+    # print('스위치 상태: ', switch[i[1]-1])
 
-    location = j[1] - 1
+    location = i[1] - 1
     if switch[location] == 0: switch[location] = 1
     else: switch[location] = 0
 
@@ -29,10 +29,8 @@ for i in student:
     flag = True
 
     while flag:
-      if left < 0 or right > len(switch) - 1:
-        flag = False
       
-      if left == right:
+      if switch[left] == switch[right]:
         if switch[left] == 0: switch[left] = 1
         else: switch[left] = 0
 
@@ -44,4 +42,16 @@ for i in student:
       else:
         flag = False
 
-  # print(switch)
+      if left < 0 or right > len(switch) - 1:
+        flag = False
+
+print(switch)
+
+
+'''
+8
+0 1 0 1 0 0 0 1
+2
+1 3
+2 3
+'''
