@@ -29,6 +29,9 @@ for i in student:
     flag = True
 
     while flag:
+
+      if left < 0 or right > len(switch) - 1:
+        break
       
       if switch[left] == switch[right]:
         if switch[left] == 0: switch[left] = 1
@@ -42,16 +45,23 @@ for i in student:
       else:
         flag = False
 
-      if left < 0 or right > len(switch) - 1:
-        flag = False
+      # if left < 0 or right > len(switch) - 1:
+      #   flag = False
 
-print(switch)
+# print(switch)
 
+switch = list(map(str, switch))
 
-'''
-8
-0 1 0 1 0 0 0 1
-2
-1 3
-2 3
-'''
+result = []
+count = 0
+for s in switch:
+
+  if count == 20:
+    print(' '.join(result))
+    result = []
+    count = 0
+
+  result.append(s)
+  count += 1 
+
+print(' '.join(result))
