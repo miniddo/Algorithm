@@ -4,6 +4,7 @@ input = sys.stdin.readline
 def cutTree(M, tree):
   tree.sort()
   start, end = 1, tree[-1]
+  result = 0
 
   while start <= end:
     mid = (start + end) // 2
@@ -17,9 +18,10 @@ def cutTree(M, tree):
       end = mid - 1
     # target이 필요한 나무 길이보다 큰 경우, 더 많이씩 자른다.
     else:
+      result = mid
       start = mid + 1
     
-  return end
+  return result
 
 # 이진탐색의 경우, main 함수를 써야 시간초과가 안난다...!!
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ M = int(input())
 MList = list(map(int, input().split()))
 
 count = Counter(NList)
+
 for i in MList:
     if i in count:
         print(count[i], end=' ')
