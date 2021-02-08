@@ -19,8 +19,8 @@ while start <= end:
     if target < N:
         end = mid - 1
     else:   # 잘라낸 개수가 기준보다 많다면, 더 큰 단위로 자른다.(최댓값)
-        # result = mid
+        result = mid
         start = mid + 1
 
-# print(result)
-print(end)
+print(result)
+# print(end)
