@@ -3,7 +3,7 @@ input = sys.stdin.readline
 
 N = int(input())
 tree = [list(input().rstrip()) for _ in range(N)]
-result = []
+result = ''
 
 def countTree(x, y, n):
 
@@ -13,16 +13,18 @@ def countTree(x, y, n):
     for i in range(x, x+n):
         for j in range(y, y+n):
             if tree[i][j] != color:
+                result += '('
                 countTree(x, y, n//2)
                 countTree(x, y+n//2, n//2)
                 countTree(x+n//2, y, n//2)
                 countTree(x+n//2, y+n//2, n//2)
+                result += ')'
                 return
     
     if color == '1':
-        result.append('1')
+        result += '1'
     else:
-        result.append('0')
+        result += '0'
 
 
 countTree(0, 0, N)
