@@ -8,6 +8,12 @@ four = list(map(int, input().rstrip()))
 K = int(input()) # 회전횟수
 rule = [list(map(int, input().split())) for _ in range(K)]
 
+def rotateGear(count, gear):
+    if count == 1:
+        gear.insert(0, gear.pop())
+    elif count == -1:
+        gear.append(gear.pop(0))
+
 for i in rule:
 
     count1, count2, count3, count4 = 0, 0, 0, 0
@@ -115,30 +121,16 @@ for i in rule:
         elif count2 == 0:   count1 = 0
     
     # 회전 시키기
-    if count1 == 1:
-        one.insert(0, one.pop())
-    elif count1 == -1:
-        one.append(one.pop(0))
-    
-    if count2 == 1:
-        two.insert(0, two.pop())
-    elif count2 == -1:
-        two.append(two.pop(0))
-    
-    if count3 == 1:
-        three.insert(0, three.pop())
-    elif count3 == -1:
-        three.append(three.pop(0))
+    rotateGear(count1, one)
+    rotateGear(count2, two)
+    rotateGear(count3, three)
+    rotateGear(count4, four)
 
-    if count4 == 1:
-        four.insert(0, four.pop())
-    elif count4 == -1:
-        four.append(four.pop(0))
 
 # 점수 계산하기
 result = 0
-if one[0] == 1: result += 1
-if two[0] == 1: result += 2
+if one[0] == 1:     result += 1
+if two[0] == 1:     result += 2
 if three[0] == 1:   result += 4
 if four[0] == 1:    result += 8
 
