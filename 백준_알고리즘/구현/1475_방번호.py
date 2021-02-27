@@ -44,3 +44,5 @@ for i in range(1, len(N)):
                     continue
 
 print(len(arr))
+
+
