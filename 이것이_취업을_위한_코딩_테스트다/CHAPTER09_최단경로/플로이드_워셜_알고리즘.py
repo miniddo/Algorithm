@@ -8,7 +8,7 @@ graph = [[INF] * (n+1) for _ in range(n+1)]
 
 for _ in range(m):
     a, b, c = map(int, input().split())
-    if graph[a][b] > c:     # 이게 왜 들어가야 할까?
+    if graph[a][b] > c:
         graph[a][b] = c
     # graph[a][b] = min(graph[a][b], c)
 
