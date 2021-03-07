@@ -22,6 +22,7 @@ def union_parent(parent_table, a, b):
     else:
         parent_table[a] = b
 
+
 n, v = map(int, input().split())
 parent_table = [0] * (n+1)
 
@@ -35,7 +36,7 @@ for _ in range(v):
 
 print('각 원소가 속한 집합 : ', end=' ')
 for i in range(1, n+1):
-    print(find_parent(parent_table, i), end=' ')
+    print(find_parent(parent_table, i), end=' ')    # 반복문 돌면서 부모 테이블을 바꿈!!
 
 print()
 
