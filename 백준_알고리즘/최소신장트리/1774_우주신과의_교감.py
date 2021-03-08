@@ -15,22 +15,31 @@ def union_parent(parent, a, b):
     else:
         parent[a] = b
 
-n, m = map(int, input().split())    # n: 우주신의 개수, m: 이미 연결된 통로 개수
+# n: 우주신의 개수, m: 이미 연결된 통로 개수
+n, m = map(int, input().split())
+# 신들의 위치
 universe = [list(map(int, input().split())) for _ in range(n)]
 universe.insert(0, [0, 0])
-dists = []
+# 루트 노드
 parent = [0] * (n+1)
+# 최소 비용
+dists = []
 result = 0
 
 for i in range(1, n+1):
     parent[i] = i
 
+m_count = 0 # 연결된 간선 개수
 for _ in range(m):
     a, b = map(int, input().split())
-    if a < b:
-        parent[b] = a
-    else:
-        parent[a] = b
+    # if a < b:
+    #     parent[b] = a
+    # else:
+    #     parent[a] = b
+    if find_parent(parent, a) != find_parent(parent, b):
+        union_parent(parent, a, b)
+        m_count += 1
+
 
 for i in range(1, n+1):
     for j in range(i+1, n+1):
@@ -45,6 +54,9 @@ for dist in dists:
     if find_parent(parent, a) != find_parent(parent, b):
         union_parent(parent, a, b)
         result += cost
+        m_count += 1
+    if m_count == n-1:
+        break
 
 
 print("%0.2f" % result)
