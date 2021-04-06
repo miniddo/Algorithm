@@ -6,7 +6,7 @@ def solution(bridge_length, weight, truck_weights):
     truck = deque([[truck_weights[0], 0]])
     
     time = 0
-    while truck:
+    while truck:   
         
         for t in truck:
             t[1] = t[1] + 1
