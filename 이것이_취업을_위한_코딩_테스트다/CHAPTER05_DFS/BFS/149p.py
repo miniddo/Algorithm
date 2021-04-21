@@ -16,6 +16,8 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 beverage = [list(map(int, input().rstrip())) for _ in range(N)]
 
+print(beverage)
+
 def dfs(i, j):
     if i < 0 or i >= N or j < 0 or j >= M:
         return False
