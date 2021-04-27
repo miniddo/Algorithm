@@ -1,5 +1,5 @@
-import sys
-import copy
+import sys, copy
+sys.setrecursionlimit(100000)
 input = sys.stdin.readline
 
 N = int(input())
@@ -36,16 +36,14 @@ def checkColor_weakness(x, y, value):
         return value
     return False
 
-result = 0
+
+result, result_w = 0, 0
 for i in range(N):
     for j in range(N):
         if checkColor(i, j, 'R') == 'R': result += 1
         if checkColor(i, j, 'G') == 'G': result += 1
         if checkColor(i, j, 'B') == 'B': result += 1
 
-result_w = 0
-for i in range(N):
-    for j in range(N):
         if checkColor_weakness(i, j, 'R') == 'R': result_w += 1
         if checkColor_weakness(i, j, 'B') == 'B': result_w += 1
 
