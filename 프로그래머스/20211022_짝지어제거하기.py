@@ -11,9 +11,9 @@ def solution(s):
                 arr.append(i)
 
     if arr:
-        return 1
-    else:
         return 0
+    else:
+        return 1
 
 
 print(solution('baabaa'))
