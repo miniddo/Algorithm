@@ -3,12 +3,12 @@ def solution(files):
     newArr = []
     for file in files:
         head, number = file[0], ''
-        point = ''
+        point = 0
         for f in range(1, len(file)):
             pre = file[f-1] in '0123456789'
             post = file[f] in '0123456789'
             if pre == True and post == False:
-                point += str(f)
+                point = f
                 break
             if file[f] not in '0123456789':
                 head += file[f]
@@ -16,10 +16,10 @@ def solution(files):
                 if len(number) < 5:
                     number += file[f]
                 else:
-                    point += str(f)
+                    point = f
                     break
 
-        tail = file[int(point):] if point != '' else ''
+        tail = file[point:] if point != 0 else ''
         newArr.append([head, number, tail])
 
     newArr.sort(key=lambda x: (x[0].lower(), int(x[1])))
