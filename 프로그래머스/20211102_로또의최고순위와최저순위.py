@@ -15,6 +15,8 @@ def matchScore(index, score, result):
 
 def solution(lottos, win_nums):
 
+    rank = [6, 6, 5, 4, 3, 2, 1]
+
     lowest = 0
     for l in lottos:
         if l in win_nums:
@@ -22,11 +24,7 @@ def solution(lottos, win_nums):
 
     highest = lowest + lottos.count(0)
 
-    result = [0, 0]
-    matchScore(0, highest, result)
-    matchScore(1, lowest, result)
-
-    return result
+    return [rank[highest], rank[lowest]]
 
 
 print(solution([44, 1, 0, 0, 31, 25], [31, 10, 45, 1, 6, 19]))  # [3, 5]
